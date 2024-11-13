@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Your Flashcards</h2>
+  <ul>
+    {% for card in flashcards %}
+      <li>{{ card.topic }}: {{ card.content }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
