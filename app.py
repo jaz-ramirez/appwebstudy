@@ -9,13 +9,22 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flashcards.db'
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 # Configuración de la API de OpenAI
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Importar modelos
-from models import User, FlashCard
+def create_app():
+    db.init_app(app)
+
+    with app.app_context():
+        from models import User, FlashCard
+        db.create_all()
+
+    return app
+
+app = create_app()
 
 # Rutas y Vistas
 @app.route('/')
@@ -27,7 +36,6 @@ def create_card():
     if request.method == 'POST':
         topic = request.form['topic']
         content = request.form['content']
-        # Aquí llamamos a la API de OpenAI para generar el contenido de la flashcard
         try:
             response = openai.Completion.create(
                 engine="davinci",
@@ -75,5 +83,5 @@ def register():
     return render_template('register.html')
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
+
