@@ -55,7 +55,7 @@ def create_app():
                 "role": "user",
                 "content": f"El tema principal es {topic}"
             }
-            chat_history.append(system_message)
+            chat_history.append(main_topic)
             about = {
                 "role": "user",
                 "content": f"Genera flashcards sobre {content} en el formato 'Pregunta: ... Respuesta: ...' para cada flashcard, no agregues nada más de texto."
@@ -77,7 +77,7 @@ def create_app():
                     new_card = FlashCard(topic=topic, question=flashcard['question'], answer=flashcard['answer'], user_id=session['user_id'])
                     db.session.add(new_card)
                 db.session.commit()
-                return redirect(url_for('history'))
+                return redirect(url_for('topics'))
             except Exception as e:
                 return f"Error al generar la flashcard: {e}"
         return render_template('create_card.html')
@@ -97,11 +97,22 @@ def create_app():
         print(flashcards)
         return flashcards
 
-    @app.route('/history')
-    def history():
+    @app.route('/topics')
+    def topics():
         user_id = session.get('user_id')
-        flashcards = FlashCard.query.filter_by(user_id=user_id).all()
-        return render_template('history.html', flashcards=flashcards)
+        # Obtener todos los temas únicos de las flashcards del usuario
+        topics = db.session.query(FlashCard.topic).filter_by(user_id=user_id).distinct().all()
+        return render_template('topics.html', topics=[t[0] for t in topics])
+
+    
+
+    @app.route('/history/<topic>')
+    def history(topic):
+        user_id = session.get('user_id')
+        # Filtrar las flashcards por usuario y tema
+        flashcards = FlashCard.query.filter_by(user_id=user_id, topic=topic).all()
+        return render_template('history.html', topic=topic, flashcards=flashcards)
+
 
     @app.route('/profile')
     def profile():
