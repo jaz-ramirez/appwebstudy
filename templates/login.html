@@ -1,18 +1,38 @@
-{% extends "base.html" %}
-{% block content %}
-    <h2>Ingresar</h2>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages  %}
-            {% for category,message in messages %}
-                <div class="{{category}}">{{message}}</div>
-            {%  endfor %}
-        {% endif  %}
-    {% endwith %}
-    <form action="{{url_for('login')}}" method="post">
-        <input type="text" placeholder="Usuario" name="username" required>
-        <input type="password" placeholder="Contraseña" name="password" required>
-        <button type="submit">Iniciar Sesión</button>
-    </form>
-    <a href="/register">Registrarse</a>
-  
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="animated-title">¡Aprende algo nuevo hoy!</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p class="subtitle">Cada día es una nueva oportunidad para crecer.</p>
+    </div>
+    <br>
+    <div>
+        <h2>Ingresar</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages  %}
+                {% for category,message in messages %}
+                    <div class="{{category}}">{{message}}</div>
+                {%  endfor %}
+            {% endif  %}
+        {% endwith %}
+        <form action="{{url_for('login')}}" method="post">
+            <input type="text" placeholder="Usuario" name="username" required>
+            <input type="password" placeholder="Contraseña" name="password" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <br>
+        <a href="/register">Registrarse</a>
+
+    </div>
+    
+</body>
+</html>

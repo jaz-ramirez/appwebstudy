@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f2e7f3, #e3eeff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: 40px;
+}
+
+/* Animated Title */
+.animated-title {
+    font-size: 2.5rem;
+    color: #4b79a1;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid rgba(75, 121, 161, 0.75);
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 80%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    animation: fill 5s ease-in-out infinite alternate;
+}
+
+@keyframes fill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 15px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #9fbeff, #c4ebfa, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+form button {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0c0c0c;
+}
+
+a {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+a:hover {
+    background-color: #0c0c0c;
+}

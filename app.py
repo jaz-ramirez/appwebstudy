@@ -113,13 +113,6 @@ def create_app():
         flashcards = FlashCard.query.filter_by(user_id=user_id, topic=topic).all()
         return render_template('history.html', topic=topic, flashcards=flashcards)
 
-
-    @app.route('/profile')
-    def profile():
-        user_id = session.get('user_id')
-        user = User.query.get(user_id)
-        return render_template('profile.html', user=user)
-
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
@@ -136,6 +129,10 @@ def create_app():
                         'error') #mensaje de error
                     return redirect(url_for('index'))
                 
+    @app.route('/logout')
+    def logout():
+        session.clear()
+        return redirect(url_for('index'))            
 
     @app.route('/register', methods=['GET', 'POST'])
     def register():

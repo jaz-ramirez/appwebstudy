@@ -11,10 +11,24 @@ nav {
     padding: 1rem;
     display: flex;
     justify-content: space-around;
+    background: linear-gradient(-45deg, #9fbeff, #c4ebfa, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 nav a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 

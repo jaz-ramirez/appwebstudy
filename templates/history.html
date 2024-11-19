@@ -4,45 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards del Tema {{ topic }}</title>
-    <style>
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-        .card {
-            width: 300px;
-            background-color: #ffffff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .card-question {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #333333;
-            margin-bottom: 0.5rem;
-        }
-        .card-answer {
-            font-size: 1rem;
-            color: #555555;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/history.css">
+    
 </head>
 <body>
+  <nav> <a href="{{ url_for('home') }}">Home</a> 
+    <a href="{{ url_for('create_card') }}">Create Flashcard</a> 
+    <a href="{{ url_for('topics') }}">History</a> 
+    {% if session.get('user_id') %} 
+      <a href="{{ url_for('logout') }}">Logout</a> 
+      {% else %} <a href="{{ url_for('login') }}">Login</a> 
+      <a href="{{ url_for('register') }}">Register</a> 
+    {% endif %} 
+  </nav>
+  <h1>Flashcards del Tema: {{ topic }}</h1>
 
-<h1>Flashcards del Tema: {{ topic }}</h1>
-<div class="card-container">
+  <div class="card-container">
     {% for flashcard in flashcards %}
         <div class="card">
-            <div class="card-question">{{ flashcard.question }}</div>
-            <div class="card-answer">{{ flashcard.answer }}</div>
+            <div class="card-inner">
+                <div class="card-question">
+                    {{ flashcard.question }}
+                </div>
+                <div class="card-answer">
+                    {{ flashcard.answer }}
+                </div>
+            </div>
         </div>
     {% endfor %}
-</div>
-
+  </div>
 </body>
 </html>
 

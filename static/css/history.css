@@ -1,0 +1,137 @@
+/****
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.card {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.card-question {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+.card-answer {
+    font-size: 1rem;
+    color: #555555;
+}
+**/
+
+/* Contenedor principal de las tarjetas */
+/* Contenedor principal */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+nav {
+    background-color: #343a40;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(-45deg, #9fbeff, #c4ebfa, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f7f9fc;
+    perspective: 1000px;
+}
+
+/* Tarjeta principal */
+.card {
+    width: 300px;
+    height: 150px;
+    /*perspective: 1000px; /* Activa el efecto 3D */
+    margin: 1rem;
+    position: relative;
+    transform-origin: center;
+}
+
+/* Contenedor interno de la tarjeta */
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: center; /* Centrar el eje de rotación */
+    transform: rotateY(0deg); /* Estado inicial */
+    transition: transform 0.8s ease; /* Suavidad al rotar */
+}
+
+/* Lados de la tarjeta */
+.card-question, .card-answer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el lado opuesto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Estilo de la parte frontal */
+.card-question {
+    background: #b773ff;
+    color: rgb(0, 0, 0);
+}
+
+/* Estilo de la parte trasera */
+.card-answer {
+    background: rgb(154, 214, 255);
+    color: rgb(0, 0, 0);
+    transform: rotateY(180deg); /* Parte trasera rotada inicialmente */
+}
+
+/* Efecto de voltear */
+.card:hover .card-inner {
+    transform: rotateY(180deg) ;; /* Gira el contenedor interno */
+}
+
+/* Efecto resplandor al pasar el mouse */
+.card:hover .card-question,
+.card:hover .card-answer{
+    box-shadow: 0 8px 16px rgb(255, 121, 246);
+}
