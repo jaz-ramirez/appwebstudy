@@ -29,15 +29,23 @@ def create_app():
     # Rutas y Vistas
     @app.route('/')
     def index():
-        return render_template('login.html') #ruta a la página principal del sitio web
+        return render_template('login.html') 
 
     @app.route('/home', methods=['GET','POST'])
     def home():
         if 'user_id' not in session:
             return redirect(url_for('login'))
         user_id=session['user_id']
+        # Consultar el usuario usando el user_id
+        user = get_user_by_id(user_id)  # Asume que devuelve un diccionario con los datos del usuario
+        username = user.get('username', 'Usuario')  # Obtiene el 'username' o usa 'Usuario' como predeterminado
+        return render_template('home.html', username=username)
+    def get_user_by_id(user_id):
+        # Ejemplo con SQLAlchemy
+        user = User.query.filter_by(id=user_id).first()
+        return {'username': user.username} if user else {}
 
-        return render_template('home.html')
+
 
     @app.route('/create', methods=['GET', 'POST'])
     def create_card():
