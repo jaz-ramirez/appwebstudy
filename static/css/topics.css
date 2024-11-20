@@ -1,10 +1,12 @@
 
+/*Estilo general*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
+/*Estilo d ela barra de navegación*/
 nav {
     background-color: #343a40;
     color: white;
@@ -31,6 +33,7 @@ nav a {
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
+/*Estilo del título animado */
 h1{
     font-family: 'Arial', sans-serif; /* Fuente */
     text-align: center; /* Alineación centrada */
@@ -64,7 +67,7 @@ h1{
     }
 }
 
-
+/*Estuilo del cntenedor de tarjetas de temas*/
 .card-container {
     top: 10%;
     display: flex;
@@ -74,6 +77,7 @@ h1{
     justify-items: center;
     
 }
+/*Estilo de cada tarjeta de tema*/
 .card {
     width: 20%;
     padding: 1rem;

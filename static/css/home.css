@@ -1,9 +1,11 @@
+/*Estilo general*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
+/*Estilo de la barra de navegación*/
 nav {
     background-color: #343a40;
     color: white;
@@ -40,6 +42,7 @@ nav a {
     left: 50%; /* Mueve el div al 50% de la anchura */
     transform: translate(-50%, -50%); /* Ajusta la posición para que el div esté completamente centrado */
 }
+/**estilo del texto animado*/
 h1{
     font-family: 'Arial', sans-serif; /* Fuente */
     text-align: center; /* Alineación centrada */
@@ -73,7 +76,7 @@ h1{
     }
 }
 
-
+/*Estilo del texto motivacional*/
 h2 {
     font-family: 'Arial', sans-serif; /* Fuente */
     text-align: center; /* Alineación centrada */
@@ -91,7 +94,7 @@ h2 {
         transform: scale(1.2); /* Más grande */
     }
 }
-
+/*Estilo de la imágen*/
 img{
     width: 550px;
     margin:3%;

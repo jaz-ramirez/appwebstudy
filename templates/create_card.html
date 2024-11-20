@@ -8,23 +8,23 @@
 </head>
 <body>
   <nav> <a href="{{ url_for('home') }}">Home</a> 
-    <a href="{{ url_for('create_card') }}">Create Flashcard</a> 
-    <a href="{{ url_for('topics') }}">History</a> 
+    <a href="{{ url_for('create_card') }}">Crear Flashcard</a> 
+    <a href="{{ url_for('topics') }}">Flashcards</a> 
     {% if session.get('user_id') %} 
       <a href="{{ url_for('logout') }}">Logout</a> 
       {% else %} <a href="{{ url_for('login') }}">Login</a> 
       <a href="{{ url_for('register') }}">Register</a> 
     {% endif %} 
   </nav>
-  <h1>Create a new Flashcard</h1>
+  <h1>Crea una nueva Flashcard</h1>
   <div id="container">
    
     <form method="POST">
-      <label for="topic">Topic:</label>
+      <label for="topic">Tema:</label>
       <input type="text" name="topic" required>
-      <label for="content">Content:</label>
+      <label for="content">Contenido:</label>
       <textarea name="content" required></textarea>
-      <button type="submit">Create Flashcard</button>
+      <button type="submit">Crea Flashcard</button>
     </form>
   </div>
 

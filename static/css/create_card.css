@@ -1,10 +1,11 @@
+/*Establece el estilo global del cuerpo de la página.*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
-
+/*Formato de la barra de navegación*/
 nav {
     background-color: #343a40;
     color: white;
@@ -15,6 +16,7 @@ nav {
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
 }
+/*Define la animación de cambio de color de gradiente del navbar*/
 @keyframes gradientBG {
     0% {
         background-position: 0% 50%;
@@ -32,7 +34,7 @@ nav a {
     text-decoration: none;
 }
 
-
+/************** Formato general del formulario**************/
 form{
     width: 50%;
     text-align: center;
@@ -61,6 +63,8 @@ form button {
 form button:hover {
     background-color: #495057;
 }
+
+/*Formato del título animado*/
 h1{
     font-family: 'Arial', sans-serif; /* Fuente */
     text-align: center; /* Alineación centrada */
@@ -73,7 +77,7 @@ h1{
     color: transparent; /* Hace que el texto sea transparente */
     animation: shadow-pulse 3s infinite;
 }
-
+/*Se establece la animación del titulo*/
 @keyframes shadow-pulse {
     0% {
         text-shadow: 0 0 10px rgba(234, 0, 255, 0.7),
@@ -95,7 +99,7 @@ h1{
     }
 }
 
-
+/*Para centrar los elementos vertical y horizontalmente */
 #container {
     display: flex;
     justify-content: center; /* Centra horizontalmente */

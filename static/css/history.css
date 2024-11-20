@@ -1,11 +1,12 @@
 
-
+/*Diseño general */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
+/*Diseño de la barra de navegación*/
 nav {
     background-color: #343a40;
     color: white;
@@ -32,7 +33,7 @@ nav a {
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
-
+/*Diseño del título animado*/
 h1{
     font-family: 'Arial', sans-serif; /* Fuente */
     text-align: center; /* Alineación centrada */
@@ -65,7 +66,7 @@ h1{
                         0 0 40px rgba(234, 0, 255, 0.7);
     }
 }
-
+/*contenedor de las tarjetas*/
 .card-container {
     display: flex;
     flex-wrap: wrap;
